@@ -1,0 +1,1031 @@
+[11/14/2026 11:24 PM] Kiyaa: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Tribute to My Uncle</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+/* =========================
+   CINEMATIC ENTRY SCREEN
+========================= */
+
+#entry {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background:
+    radial-gradient(circle, #30230c, #080808 75%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    transition: 1.5s ease;
+}
+
+#entry.hide {
+    opacity: 0;
+    transform: scale(1.15);
+    pointer-events: none;
+}
+
+.entry-small {
+    color: #d6ad60;
+    letter-spacing: 7px;
+    font-size: 12px;
+    margin-bottom: 25px;
+    animation: fadeIn 2s;
+}
+
+.entry-title {
+    font-size: clamp(38px, 8vw, 85px);
+    color: #e6c47e;
+    text-shadow: 0 0 30px #b88b37;
+    animation: titleAppear 2.5s ease;
+}
+
+.entry-description {
+    color: #ddd;
+    line-height: 2;
+    margin: 25px 0 35px;
+    animation: fadeIn 3s;
+}
+
+.open-btn {
+    padding: 16px 38px;
+    border: 1px solid #d6ad60;
+    border-radius: 40px;
+    background: transparent;
+    color: #e6c47e;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.open-btn:hover {
+    background: #d6ad60;
+    color: black;
+    box-shadow: 0 0 35px #d6ad60;
+    transform: scale(1.1);
+}
+
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+        letter-spacing: 20px;
+        filter: blur(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: 2px;
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,.8);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(214,173,96,.2);
+}
+
+.logo {
+    font-size: 23px;
+    color: #d6ad60;
+    letter-spacing: 2px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #d6ad60;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+    overflow: hidden;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.8)),
+    url("uncle1.jpg") center/cover no-repeat;
+    animation: heroZoom 18s infinite alternate ease-in-out;
+}
+
+@keyframes heroZoom {
+    from { background-size: 100% 100%; }
+    to { background-size: 115% 115%; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-small {
+    color: #d6ad60;
+    letter-spacing: 8px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 9vw, 95px);
+    color: #e8c77d;
+    text-shadow: 0 0 35px rgba(214,173,96,.6);
+    animation: titleAppear 2s ease;
+}
+
+.hero h2 {
+    font-size: clamp(20px, 4vw, 35px);
+    margin: 20px 0;
+    font-weight: normal;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 2;
+    color: #ddd;
+    font-size: 17px;
+}
+
+.gold {
+    color: #d6ad60;
+}
+
+.scroll-text {
+    margin-top: 60px;
+    color: #d6ad60;
+    letter-spacing: 4px;
+    font-size: 12px;
+    animation: floatText 2s infinite;
+}
+
+@keyframes floatText {
+    50% { transform: translateY(12px); }
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+[11/14/2026 11:24 PM] Kiyaa: section {
+    padding: 110px 8%;
+    text-align: center;
+    position: relative;
+}
+
+.section-label {
+    color: #d6ad60;
+    letter-spacing: 6px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: clamp(32px, 5vw, 55px);
+    margin-bottom: 30px;
+    background: linear-gradient(
+        90deg,
+        #9b7133,
+        #fff0ba,
+        #d6ad60,
+        #fff0ba
+    );
+    background-size: 300%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 300%; }
+}
+
+.description {
+    max-width: 800px;
+    margin: auto;
+    line-height: 2;
+    font-size: 17px;
+    color: #ccc;
+}
+
+/* =========================
+   ANIMATED TEXT
+========================= */
+
+.moving-text {
+    display: inline-block;
+    animation: floatingText 4s ease-in-out infinite;
+}
+
+@keyframes floatingText {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.letter {
+    display: inline-block;
+    animation: letterWave 2s ease-in-out infinite;
+}
+
+@keyframes letterWave {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* =========================
+   STORY SECTION
+========================= */
+
+.story-section {
+    background: linear-gradient(#101010, #17130b, #101010);
+}
+
+.story-card {
+    max-width: 850px;
+    margin: 35px auto;
+    padding: 35px;
+    text-align: left;
+    background: rgba(255,255,255,.035);
+    border-left: 3px solid #d6ad60;
+    border-radius: 8px;
+    transition: .6s;
+}
+
+.story-card:hover {
+    transform: translateX(12px);
+    background: rgba(214,173,96,.08);
+    box-shadow: 0 0 25px rgba(214,173,96,.15);
+}
+
+.story-card h3 {
+    color: #d6ad60;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.story-card p {
+    color: #ccc;
+    line-height: 2;
+}
+
+/* =========================
+   CINEMATIC GALLERY
+========================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.photo {
+    height: 330px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #b18a44;
+    border-radius: 12px;
+    transition: .7s;
+}
+
+.photo:nth-child(even) {
+    transform: translateY(25px);
+}
+
+.photo:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 0 30px rgba(214,173,96,.4);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1.2s;
+    filter: brightness(.75);
+}
+
+.photo:hover img {
+    transform: scale(1.2);
+    filter: brightness(1);
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 10px;
+    background: linear-gradient(transparent, black);
+    color: #e6c47e;
+    font-size: 20px;
+}
+
+/* =========================
+   MOVING QUOTE
+========================= */
+
+.quote-section {
+    background:
+    linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85)),
+    url("uncle2.jpg") center/cover fixed;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote {
+    max-width: 900px;
+    font-size: clamp(25px, 5vw, 45px);
+    color: #e6c47e;
+    line-height: 1.7;
+    font-style: italic;
+    animation: floatText 5s infinite;
+}
+
+/* =========================
+   SURPRISE BUTTON
+========================= */
+
+.surprise-btn {
+    padding: 16px 35px;
+    margin-top: 35px;
+    background: #d6ad60;
+    border: none;
+    border-radius: 30px;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.surprise-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #d6ad60;
+}
+
+#surprise-message {
+    display: none;
+    max-width: 750px;
+    margin: 35px auto 0;
+    padding: 30px;
+    background: #1e190e;
+    border: 1px solid #d6ad60;
+    border-radius: 15px;
+    line-height: 2;
+    color: #eee;
+    animation: fadeIn 1.5s;
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+[11/14/2026 11:24 PM] Kiyaa: .reveal {
+    opacity: 0;
+    transform: translateY(65px);
+    filter: blur(8px);
+    transition: 1.3s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* =========================
+   GOLD PARTICLES
+========================= */
+
+.particle {
+    position: fixed;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #e6c47e;
+    box-shadow: 0 0 12px #d6ad60;
+    z-index: 5;
+    pointer-events: none;
+    animation: particleRise 7s linear forwards;
+}
+
+@keyframes particleRise {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(.5);
+    }
+    20% { opacity: 1; }
+    100% {
+        opacity: 0;
+        transform: translateY(-110vh) scale(2);
+    }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 65px 20px;
+    background: #100d07;
+    text-align: center;
+    border-top: 1px solid #49391c;
+}
+
+footer h2 {
+    color: #d6ad60;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+footer p {
+    color: #aaa;
+    line-height: 2;
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media(max-width:700px) {
+
+    nav {
+        padding: 15px 10px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    nav a {
+        margin-left: 8px;
+        font-size: 11px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    section {
+        padding: 80px 6%;
+    }
+
+    .photo {
+        height: 300px;
+    }
+
+    .photo:nth-child(even) {
+        transform: none;
+    }
+
+    .story-card {
+        padding: 23px;
+    }
+
+    .quote-section {
+        background-attachment: scroll;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     ENTRY PAGE
+========================= -->
+
+<div id="entry">
+
+    <div class="entry-small">
+        A SPECIAL TRIBUTE
+    </div>
+
+    <h1 class="entry-title">
+        For Dr.Gada Daba Hordofa(Internal Medicine Specialist ) ❤️
+    </h1>
+
+    <p class="entry-description">
+        Some people make life beautiful.<br>
+        Some people inspire us without knowing it.<br>
+        This little world is created especially for you.
+        sile gebulin inamesiginalen Dr. 
+    </p>
+
+    <button class="open-btn" onclick="openGift()">
+        OPEN YOUR GIFT PLEASE✨
+    </button>
+
+</div>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <div class="logo">FOR YOU ❤️</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#story">Journey</a>
+        <a href="#gallery">Memories</a>
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO SECTION
+========================= -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            A LIFE WORTH CELEBRATING
+        </div>
+
+        <h1>
+            Welcome Dr.Gada
+        </h1>
+
+        <h2 class="moving-text">
+            A Man of Strength & Inspiration
+        </h2>
+
+        <p>
+            Every life has a story, but some stories
+            deserve to be remembered forever.
+
+            Your journey, courage and character
+            make you someone truly special.
+        </p>
+
+        <div class="scroll-text">
+            SCROLL TO DISCOVER ↓
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     ABOUT SECTION
+========================= -->
+
+<section id="about">
+
+    <div class="reveal">
+
+        <div class="section-label"><br>
+            THE MAN BEHIND THE STORY
+        </div>
+
+        <h2 class="section-title">
+            More Than Just An Uncle, Meslogn Nw
+        </h2>
+
+        <p class="description">
+            You are more than a family member.
+            You are a person whose life, wisdom,
+            experiences and strength deserve
+            appreciation.
+
+            Sometimes the most beautiful people
+            are those who inspire others simply
+            by being themselves.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LIFE JOURNEY
+========================= -->
+
+<section class="story-section" id="story">
+
+    <div class="reveal">
+
+        <div class="section-label">
+            CHAPTERS OF YOUR LIFE
+        </div>
+
+        <h2 class="section-title">
+            Your Beautiful Journey
+        </h2>
+
+        <p class="description">
+            Every chapter has a meaning.
+            Every challenge has a lesson.
+            Every achievement has a story.
+        </p>
+
+    </div>
+
+
+    <div class="story-card reveal">
+
+        <h3>01. The Beginning</h3>
+
+        <p>
+            Every great story starts somewhere.
+
+            Your childhood began in 1982 in Bone Abuna Mandaraa Sonbo, Ana Sekela,
+             Horo Guduru Wollega. You were born to Kule Kalbesa and Daba Hordofa,
+             among 12 brothers and sisters, and you were the 11th child of your father...
+
+            <!-- Add his real childhood story here -->
+        </p>
+
+    </div>
+
+
+    <div class="story-card reveal">
+
+        <h3>02. The Challenges</h3>
+
+        <p>
+            Life is not always an easy journey.
+
+            There are difficult days, unexpected
+            challenges and moments that test
+            our strength.
+
+            But every experience becomes part
+            of the story that makes us stronger.
+
+            <!-- Add his real struggles here -->
+        </p>
+
+    </div>
+
+
+    <div class="story-card reveal">
+
+        <h3>03. The Achievements</h3>
+
+        <p>
+            Every achievement represents
+            dedication, hard work and patience.
+
+            Your accomplishments are worth
+            celebrating, and your journey
+            deserves to be remembered.
+
+            <!-- Add his real achievements here -->
+        </p>
+
+    </div>
+
+
+    <div class="story-card reveal">
+
+        <h3>04. The Legacy</h3>
+
+        <p>
+            The greatest legacy is not only
+            what we leave behind, but also
+            the lives we touch and the lessons
+            we share with others.
+
+            <!-- Add what makes him special here -->
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PHOTO GALLERY
+========================= -->
+
+<section id="gallery">
+
+    <div class="reveal">
+
+        <div class="section-label">
+            MOMENTS TO REMEMBER
+        </div>
+
+        <h2 class="section-title">
+            Beautiful Memories
+        </h2>
+
+        <p class="description">
+            Pictures may capture a moment,
+            but memories keep that moment alive.
+        </p>
+
+    </div>
+
+
+    <div class="gallery reveal">
+
+        <div class="photo">
+            <img src="family.jpg" alt="Uncle portrait">
+            <div class="photo-caption">A Special Moment</div>
+        </div>
+
+        <div class="photo">
+            <img src="his.jpg" alt="Uncle memory">
+            <div class="photo-caption">A Beautiful Memory</div>
+        </div>
+
+        <div class="photo">
+            <img src="first.jpg" alt="Uncle photograph">
+            <div class="photo-caption">The Journey</div>
+        </div>
+
+        <div class="photo">
+            <img src="done.jpg" alt="Uncle photograph">
+            <div class="photo-caption">A Life To Celebrate</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CINEMATIC QUOTE
+========================= -->
+
+<section class="quote-section">
+
+    <div class="reveal">
+
+        <div class="section-label">
+            WORDS FROM THE HEART
+        </div>
+
+        <p class="quote">
+            "A great man is not remembered
+            only for what he has,
+            but for who he is
+            and the lives he inspires."
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SPECIAL SURPRISE
+========================= -->
+
+<section id="surprise">
+
+    <div class="reveal">
+
+        <div class="section-label">
+            ONE LAST THING
+        </div>
+
+        <h2 class="section-title">
+            A Message Just For You
+        </h2>
+ <p class="description">
+            There is something I want you to know.
+            Not everything meaningful can be
+            expressed through ordinary words.
+        </p>
+
+        <button class="surprise-btn"
+                onclick="showSurprise()">
+            OPEN YOUR SURPRISE ❤️
+        </button>
+
+        <div id="surprise-message">
+
+            <h2 class="gold">
+                Dear Uncle ❤️
+            </h2>
+
+            <br>
+
+            Thank you for being part of my life.
+
+            Your existence, your story and your
+            experiences mean more than words
+            can explain.
+
+            I wish you endless happiness,
+            peace, strength and success.
+
+            May every new chapter of your life
+            be more beautiful than the last. <br>
+            I am soo happy if, igziabher fekdo kemirt mist gar bayik
+            ina dikamikin atatimat ok.
+             milik negr yihe hulu keld bite nw eshii.
+
+            <br><br>
+
+            <h2 class="gold">
+                I LOVE AND APPRECIATE YOU!
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h2>Made With Love ❤️</h2>
+
+    <p>
+        A small digital gift for a very special person.
+    </p>
+
+    <p>
+        Your story matters. Your life matters.
+        You are appreciated.
+    </p>
+
+    <br>
+
+    <p>Created with love | 2026</p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+// OPEN THE GIFT
+
+function openGift() {
+
+    const entry = document.getElementById("entry");
+
+    entry.classList.add("hide");
+
+    setTimeout(() => {
+        entry.style.display = "none";
+    }, 1500);
+
+    revealElements();
+
+}
+
+
+// SCROLL ANIMATIONS
+
+function revealElements() {
+
+    const elements = document.querySelectorAll(".reveal");
+
+    elements.forEach(element => {
+
+        const position =
+        element.getBoundingClientRect().top;
+
+        if (position < window.innerHeight - 80) {
+
+            element.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealElements);
+
+
+// SURPRISE MESSAGE
+
+function showSurprise() {
+
+    const message =
+    document.getElementById("surprise-message");
+
+    message.style.display = "block";
+
+    message.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+// GOLDEN FLOATING PARTICLES
+
+function createParticle() {
+
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.style.left =
+    Math.random() * 100 + "vw";
+
+    particle.style.animationDuration =
+    (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    }, 9000);
+
+}
+
+setInterval(createParticle, 350);
+
+
+// INITIAL REVEAL
+
+revealElements();
+
+</script>
+
+</body>
+</html>
